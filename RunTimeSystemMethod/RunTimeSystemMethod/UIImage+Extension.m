@@ -8,6 +8,7 @@
 
 #import "UIImage+Extension.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 @implementation UIImage (Extension)
 //load方法的调用时间：当某个类或者分类加载到内存就会调用一次
 + (void)load{
@@ -17,7 +18,7 @@
     Method m2 =  class_getClassMethod([UIImage class], @selector(TF_imageNamed:));
     //交换d
     method_exchangeImplementations(m1, m2);
-    
+
 }
 
 //重写方法
